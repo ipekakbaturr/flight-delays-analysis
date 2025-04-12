@@ -3,17 +3,18 @@ import pandas as pd
 import plotly.express as px
 import gdown
 import os
+# --- Load data ---
 
-# Download dataset using gdown from Google Drive
+
+# Download latest version
 file_id = "1QQ-iscdDe-mWU9wbh1f00ByT91QWrL6X"
-output = "flight_cleaned.csv"
+output = "flights.csv"
 
 if not os.path.exists(output):
     gdown.download(f"https://drive.google.com/uc?id={file_id}", output, quiet=False)
 
 # Load the dataset
 df = pd.read_csv(output)
-
 airport_delay = pd.read_csv("airport_delay_with_coords.csv")
 airport_meta = pd.read_csv("airports.csv")
 df['ORIGIN_AIRPORT'] = df['ORIGIN_AIRPORT'].astype(str)
@@ -76,7 +77,7 @@ with col2:
     fig2 = px.bar(df_reason, x='Reason', y='Average Delay (min)', color='Reason', height=400)
     st.plotly_chart(fig2, use_container_width=True)
 
-st.subheader("✈️ Delay Distribution")
+st.subheader("✈️ Delay & Cancellation Distribution")
 
 col3, col4 = st.columns([1, 1])
 
