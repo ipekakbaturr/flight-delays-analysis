@@ -4,10 +4,16 @@ import plotly.express as px
 import gdown
 import os
 
-# Download latest version
-file_id = '1QQ-iscdDe-mWU9wbh1f00ByT91QWrL6X'
-dwn_url = f"https://drive.google.com/uc?id={file_id}"
-df = pd.read_csv(dwn_url)
+# Download dataset using gdown from Google Drive
+file_id = "1QQ-iscdDe-mWU9wbh1f00ByT91QWrL6X"
+output = "flight_cleaned.csv"
+
+if not os.path.exists(output):
+    gdown.download(f"https://drive.google.com/uc?id={file_id}", output, quiet=False)
+
+# Load the dataset
+df = pd.read_csv(output)
+
 airport_delay = pd.read_csv("airport_delay_with_coords.csv")
 airport_meta = pd.read_csv("airports.csv")
 df['ORIGIN_AIRPORT'] = df['ORIGIN_AIRPORT'].astype(str)
