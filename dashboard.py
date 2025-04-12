@@ -1,15 +1,11 @@
 import streamlit as st
 import pandas as pd
 import plotly.express as px
-
-# --- Load data ---
-import kagglehub
+import gdown
+import os
 
 # Download latest version
-path = kagglehub.dataset_download("usdot/flight-delays")
-
-print("Path to dataset files:", path)
-df = pd.read_csv(path + "/flights.csv")
+df = pd.read_csv("https://drive.google.com/file/d/1QQ-iscdDe-mWU9wbh1f00ByT91QWrL6X/view?usp=sharing")
 airport_delay = pd.read_csv("airport_delay_with_coords.csv")
 airport_meta = pd.read_csv("airports.csv")
 df['ORIGIN_AIRPORT'] = df['ORIGIN_AIRPORT'].astype(str)
