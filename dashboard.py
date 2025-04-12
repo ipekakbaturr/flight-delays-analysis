@@ -3,7 +3,13 @@ import pandas as pd
 import plotly.express as px
 
 # --- Load data ---
-df = pd.read_csv("flight_cleaned.csv")
+import kagglehub
+
+# Download latest version
+path = kagglehub.dataset_download("usdot/flight-delays")
+
+print("Path to dataset files:", path)
+df = pd.read_csv(path + "/flights.csv")
 airport_delay = pd.read_csv("airport_delay_with_coords.csv")
 airport_meta = pd.read_csv("airports.csv")
 df['ORIGIN_AIRPORT'] = df['ORIGIN_AIRPORT'].astype(str)
