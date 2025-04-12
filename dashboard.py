@@ -5,7 +5,9 @@ import gdown
 import os
 
 # Download latest version
-df = pd.read_csv("flights.csv")
+file_id = '1QQ-iscdDe-mWU9wbh1f00ByT91QWrL6X/view?usp=sharing'
+dwn_url = f"https://drive.google.com/uc?id={file_id}"
+df = pd.read_csv(dwn_url)
 airport_delay = pd.read_csv("airport_delay_with_coords.csv")
 airport_meta = pd.read_csv("airports.csv")
 df['ORIGIN_AIRPORT'] = df['ORIGIN_AIRPORT'].astype(str)
