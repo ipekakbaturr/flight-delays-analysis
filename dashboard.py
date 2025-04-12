@@ -5,7 +5,7 @@ import gdown
 import os
 
 # Download latest version
-file_id = '1QQ-iscdDe-mWU9wbh1f00ByT91QWrL6X/view?usp=sharing'
+file_id = '1QQ-iscdDe-mWU9wbh1f00ByT91QWrL6X'
 dwn_url = f"https://drive.google.com/uc?id={file_id}"
 df = pd.read_csv(dwn_url)
 airport_delay = pd.read_csv("airport_delay_with_coords.csv")
