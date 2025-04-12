@@ -1,5 +1,4 @@
-# flight-delays-analysis
-# ✈️ Flight Delays and Cancellations Analysis
+# ✈️ Flight Delays Analysis
 
 This project explores and analyses flight delay and cancellation data in the United States. Using Python, Pandas, and Plotly, it uncovers trends in airline punctuality, common delay reasons, seasonal effects, and more. The goal is to deliver interactive visual insights and build a dashboard for decision-makers and the general public.
 
